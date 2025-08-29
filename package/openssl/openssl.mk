@@ -20,6 +20,8 @@ openssl/shrink_opts = \
   --api=1.1.1 \
   -DOPENSSL_SMALL_FOOTPRINT \
   -Os \
+  no-fuzz-afl \
+  no-fuzz-libfuzzer \ 
   no-acvp-tests \
   no-afalgeng \
   no-apps \
