@@ -34,9 +34,10 @@ endif
 define openssh/build =
 	+cd $(openssh/dir)
 	env PATH='$(host_path)' autoreconf -i
-	./configure LDFLAGS="-static $(LDFLAGS)" LIBS="-lpthread -latomic" \
+	./configure LDFLAGS="-static $(LDFLAGS)" LIBS="-lpthread" \
 		--prefix="$(prefix)" --host="$(host_triplet)" --disable-strip \
 		--with-privsep-user=root --with-privsep-path=$(prefix)/var/empty
+	sed -i 's/-lcryptho/-lcryptho -latomic/g' Makefile
 	'$(MAKE)'
 endef
 
