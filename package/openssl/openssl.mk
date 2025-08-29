@@ -126,7 +126,7 @@ define openssl/build =
 	  no-docs \
 	  no-shared \
 	  $(openssl/shrink_opts)
-  find . -name Makefile -exec "Makefile: start process {}" \; -exec bash -c "sed -i 's/-lcryptho/-lcryptho -latomic/g' {}" \;
+  find . -name Makefile -exec echo "Makefile: start process {}" \; -exec bash -c "sed -i 's/-lcryptho/-lcryptho -latomic/g' {}" \;
 	'$(MAKE)'
 endef
 
