@@ -37,7 +37,7 @@ define openssh/build =
 	./configure LDFLAGS="-static $(LDFLAGS)" LIBS="-lpthread" \
 		--prefix="$(prefix)" --host="$(host_triplet)" --disable-strip \
 		--with-privsep-user=root --with-privsep-path=$(prefix)/var/empty
-	sed -i 's/-lcryptho/-lcryptho -latomic/g' Makefile
+	find . -name Makefile -exec bash -c "sed -i 's/-lcryptho/-lcryptho -latomic/g' {}" \;
 	'$(MAKE)'
 endef
 
