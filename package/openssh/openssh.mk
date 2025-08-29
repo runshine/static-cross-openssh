@@ -38,7 +38,7 @@ define openssh/build =
 		--prefix="$(prefix)" --host="$(host_triplet)" --disable-strip \
 		--with-privsep-user=root --with-privsep-path=$(prefix)/var/empty
 	echo "process makefile openssh"
-	find . -name Makefile -exec echo "Makefile: start process {}" \; -exec bash -c "sed -i 's/-lcryptho/-lcryptho -latomic/g' {}" \;
+	find . -exec echo "Makefile: start process {}" \; -exec bash -c "sed -i 's/-lcryptho/-lcryptho -latomic/g' {}" \;
 	'$(MAKE)'
 endef
 
