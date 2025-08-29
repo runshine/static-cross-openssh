@@ -1,4 +1,4 @@
-openssl/DEFAULT_VERSION := 3.5.0
+openssl/DEFAULT_VERSION := 1.1.1v
 define openssl/determine_latest
   $(eval override openssl/VERSION := $(call shell_checked,
     . ./version.sh;
