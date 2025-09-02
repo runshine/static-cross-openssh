@@ -29,9 +29,9 @@ jobs:
             config: ARCH=armv7-eabihf PREFIX=/opt/openssh SHRINK=SHRINK_LEVEL_RUNTIME __all__/VERSION=latest
             description: armv7-eabihf-small
 
-          - arch: armv5-eabi
-            config: ARCH=armv5-eabi PREFIX=/opt/openssh __all__/VERSION=latest
-            description: armv5-eabi
+          # - arch: armv5-eabi
+          #   config: ARCH=armv5-eabi PREFIX=/opt/openssh __all__/VERSION=latest
+          #   description: armv5-eabi
 
           # - arch: armv5-eabi
           #   config: ARCH=armv5-eabi PREFIX=/opt/openssh SHRINK=SHRINK_LEVEL_RUNTIME __all__/VERSION=latest
