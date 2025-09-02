@@ -39,7 +39,8 @@ define openssh/build =
 		--with-privsep-user=root --with-privsep-path=$(prefix)/var/empty
 	echo "process makefile openssh"
 	find . -iname "Makefile*" -exec echo "Makefile: start process {}" \; -exec bash -c "sed -i 's/-lcryptho/-lcryptho -latomic/g' {}" \;
-	LDFLAGS="-static -latomic" '$(MAKE)'
+	sed -i 's/-lcrypto/-lcrypto -latomic/g' Makefile
+	'$(MAKE)'
 endef
 
 define openssh/install =
