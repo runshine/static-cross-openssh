@@ -34,7 +34,7 @@ endif
 define openssh/build =
 	+cd $(openssh/dir)
 	env PATH='$(host_path)' autoreconf -i
-	./configure LDFLAGS="-static -latomic $(LDFLAGS)" LIBS="-lpthread" \
+	./configure LDFLAGS="-static $(LDFLAGS)" LIBS="-lpthread -latomic" \
 		--prefix="$(prefix)" --host="$(host_triplet)" --disable-strip \
 		--with-privsep-user=root --with-privsep-path=$(prefix)/var/empty
 	echo "process makefile openssh"
